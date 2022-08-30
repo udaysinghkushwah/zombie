@@ -18,7 +18,6 @@ they find to zombies as well.
 
 ## Things I would do differently:
 
-- more test coverage
-- different data structure (performance issues)
+- Unit test cases and code coverage
 - split up monolith service
-- better form design / UX
+- Implimented design and UI
