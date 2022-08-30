@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/home/modals/settings",
+  "sourceRoot": "libs/home/modals/settings/src",
+  "prefix": "zombie",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/home/modals/settings"],
+      "options": {
+        "jestConfig": "libs/home/modals/settings/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/home/modals/settings/src/**/*.ts",
+          "libs/home/modals/settings/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

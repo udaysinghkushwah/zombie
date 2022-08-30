@@ -1,0 +1,40 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@zombie/board/data-access": [
+        "libs/board/data-access/src/index.ts"
+      ],
+      "@zombie/board/interfaces": [
+        "libs/board/interfaces/src/index.ts"
+      ],
+      "@zombie/board/ui": ["libs/board/ui/src/index.ts"],
+      "@zombie/home/modals/onboarding": [
+        "libs/home/modals/onboarding/src/index.ts"
+      ],
+      "@zombie/home/modals/settings": [
+        "libs/home/modals/settings/src/index.ts"
+      ],
+      "@zombie/home/page": ["libs/home/page/src/index.ts"],
+      "@zombie/shared/ng/common": [
+        "libs/shared/ng/common/src/index.ts"
+      ],
+      "@zombie/shared/ng/core": ["libs/shared/ng/core/src/index.ts"],
+      "@zombie/shared/ui": ["libs/shared/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

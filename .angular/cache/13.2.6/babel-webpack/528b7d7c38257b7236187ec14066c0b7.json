@@ -1,0 +1,1 @@
+{"ast":null,"code":"export * from './lib/board-data-access.module';\nexport * from './lib/board-data-access.service';","map":null,"metadata":{},"sourceType":"module"}

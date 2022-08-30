@@ -1,0 +1,26 @@
+<div
+  class="grid gap-4"
+  [ngStyle]="{ 'grid-template-columns': gridTemplateColumns }"
+>
+  <ng-container *ngFor="let row of grid; let rowIndex = index">
+    <ng-container *ngFor="let cell of row; let columnIndex = index">
+      <div
+        class="relative flex items-center justify-center overflow-hidden -translate-y-1/2 border-2 border-gray-700 aspect-square top-1/2 hover:bg-slate-200"
+        [ngClass]="{
+          'bg-green-400 hover:bg-green-500': onlyHasZombies(cell),
+          'bg-blue-400 hover:bg-blue-500': onlyHasCreatures(cell),
+          'bg-red-400 hover:bg-red-500': hasCreaturesAndZombies(cell)
+        }"
+        (click)="onTileClick(columnIndex, rowIndex)"
+        data-testid="tile"
+      >
+        <ng-container *ngFor="let token of cell">
+          <ng-container [ngSwitch]="token.type">
+            <span *ngSwitchCase="'ZOMBIE'"> z{{ token.id }} </span>
+            <span *ngSwitchCase="'CREATURE'"> c{{ token.id }}</span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

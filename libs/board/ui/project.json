@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/board/ui",
+  "sourceRoot": "libs/board/ui/src",
+  "prefix": "zombie",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/board/ui"],
+      "options": {
+        "jestConfig": "libs/board/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/board/ui/src/**/*.ts",
+          "libs/board/ui/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

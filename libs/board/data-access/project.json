@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/board/data-access",
+  "sourceRoot": "libs/board/data-access/src",
+  "prefix": "zombie",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/board/data-access"],
+      "options": {
+        "jestConfig": "libs/board/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/board/data-access/src/**/*.ts",
+          "libs/board/data-access/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

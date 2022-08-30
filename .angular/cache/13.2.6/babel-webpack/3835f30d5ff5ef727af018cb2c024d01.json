@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var Direction = /*#__PURE__*/(() => {\n  (function (Direction) {\n    Direction[\"UP\"] = \"U\";\n    Direction[\"DOWN\"] = \"D\";\n    Direction[\"LEFT\"] = \"L\";\n    Direction[\"RIGHT\"] = \"R\";\n  })(Direction || (Direction = {}));\n\n  return Direction;\n})();","map":null,"metadata":{},"sourceType":"module"}

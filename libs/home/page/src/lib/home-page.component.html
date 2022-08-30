@@ -1,0 +1,104 @@
+<zombie-home-modals-onboarding
+  *ngIf="showOnboarding"
+  data-testid="onboarding-modal"
+  (dismiss)="onOnboardingModalDismiss()"
+></zombie-home-modals-onboarding>
+
+<zombie-home-modals-settings
+  *ngIf="showSettings"
+  (settings)="onSettingsUpdate($event)"
+  (dismiss)="onSettingsDismiss()"
+  [closeable]="hasExistingBoard"
+></zombie-home-modals-settings>
+
+<div class="max-w-2xl min-h-full p-8 py-4 mx-auto">
+  <div class="lg:flex lg:items-center lg:justify-between">
+    <div class="flex-1 min-w-0">
+      <h1
+        class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"
+      >
+        Zombie 
+      </h1>
+    </div>
+    <div class="flex mt-5 lg:mt-0 lg:ml-4">
+      <span class="hidden sm:block">
+        <button
+          type="button"
+          class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          (click)="openSettings()"
+        >
+          <!-- Heroicon name: cog -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+          <span class="pl-2">Settings</span>
+        </button>
+      </span>
+
+      <span class="hidden ml-3 sm:block">
+        <button
+          type="button"
+          class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          [disabled]="!isRunning"
+          (click)="nextButtonClick()"
+        >
+          <!-- Heroicon name: arrow-circle-right -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span class="pl-2">Next</span>
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <div class="mt-2">
+    <h2
+      *ngIf="message"
+      class="text-xl font-bold leading-7 text-gray-400 sm:text-3xl sm:truncate"
+    >
+      {{ message }}
+    </h2>
+    <h2
+      *ngIf="!isRunning"
+      class="text-xl font-bold leading-7 text-gray-400 sm:text-3xl sm:truncate"
+    >
+      The simulation has been completed
+    </h2>
+  </div>
+  <main>
+    <div class="px-1 pt-5 mx-auto max-w-7xl">
+      <zombie-board-ui
+        [grid]="grid$ | async"
+        (tileClicked)="onTileClick($event)"
+      ></zombie-board-ui>
+    </div>
+  </main>
+</div>

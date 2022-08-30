@@ -1,0 +1,90 @@
+<zombie-modal (dismiss)="onModalDismiss($event)">
+  <zombie-modal-header>
+    <h3 class="pl-12 mb-4">Settings</h3>
+  </zombie-modal-header>
+  <p class="pl-12" style="margin-top: 0">
+    Click on the grid to place a
+    <strong
+      *ngIf="settingsForm.formControls.mode.value === 0"
+      class="text-green-600"
+      >Zombie</strong
+    ><strong
+      *ngIf="settingsForm.formControls.mode.value === 1"
+      class="text-blue-600"
+      >Creature</strong
+    >
+  </p>
+  <zombie-modal-body>
+    <form
+      [formGroup]="settingsForm"
+      class="flex flex-col text-gray-900 gap-y-5"
+    >
+      <zombie-board-ui
+        [grid]="grid$ | async"
+        class="block pl-12 pr-10"
+        (tileClicked)="onTileClick($event)"
+      ></zombie-board-ui>
+      <div class="flex justify-center px-3 pr-10 align-middle">
+        <input
+          type="number"
+          [formControl]="settingsForm.formControls.sizeExtra"
+          [min]="gridMin"
+          [max]="gridMax"
+        />
+        <input
+          type="range"
+          [formControl]="settingsForm.formControls.size"
+          [min]="gridMin"
+          [max]="gridMax"
+          class="flex-1"
+        />
+      </div>
+      <div class="flex justify-center pl-12 gap-x-5">
+        <label>
+          <input
+            type="radio"
+            name="mode"
+            [formControl]="settingsForm.formControls.mode"
+            [value]="0"
+          />
+          Zombie
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="mode"
+            [formControl]="settingsForm.formControls.mode"
+            [value]="1"
+          />
+          Creature
+        </label>
+      </div>
+      <div class="flex items-baseline justify-start ml-12 mr-10 gap-x-5">
+        <label>Moves: </label>
+        <input
+          type="text"
+          [formControl]="settingsForm.formControls.moveSet"
+          placeholder="UDLR"
+          class="inline-block w-full px-4 py-2 border-gray-500 rounded-none focus:ring-indigo-500 focus:border-indigo-500 rounded-r-md sm:text-sm"
+        />
+      </div>
+    </form>
+    <ng-container *ngIf="hasAttempedSubmission">
+      <p
+        class="ml-12 mr-10 text-red-500"
+        style="margin-top: 0"
+        *ngFor="let message of errorMessages"
+      >
+        {{ message }}
+      </p>
+    </ng-container>
+  </zombie-modal-body>
+  <zombie-modal-footer>
+    <zombie-button
+      color="green"
+      class="inline-flex justify-center w-full ml-12 mr-10"
+      (click)="submitButtonClick()"
+      >Submit</zombie-button
+    >
+  </zombie-modal-footer>
+</zombie-modal>

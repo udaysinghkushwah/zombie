@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "projects": {
+    "board-data-access": "libs/board/data-access",
+    "board-interfaces": "libs/board/interfaces",
+    "board-ui": "libs/board/ui",
+    "home-modals-onboarding": "libs/home/modals/onboarding",
+    "home-modals-settings": "libs/home/modals/settings",
+    "home-page": "libs/home/page",
+    "shared-ng-common": "libs/shared/ng/common",
+    "shared-ng-core": "libs/shared/ng/core",
+    "shared-ui": "libs/shared/ui",
+    "zombie": "apps/zombie",
+    "zombie-e2e": "apps/zombie-e2e"
+  }
+}

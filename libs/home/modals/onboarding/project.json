@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/home/modals/onboarding",
+  "sourceRoot": "libs/home/modals/onboarding/src",
+  "prefix": "zombie",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/home/modals/onboarding"],
+      "options": {
+        "jestConfig": "libs/home/modals/onboarding/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/home/modals/onboarding/src/**/*.ts",
+          "libs/home/modals/onboarding/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

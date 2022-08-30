@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/ng/common",
+  "sourceRoot": "libs/shared/ng/common/src",
+  "prefix": "zombie",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/ng/common"],
+      "options": {
+        "jestConfig": "libs/shared/ng/common/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/ng/common/src/**/*.ts",
+          "libs/shared/ng/common/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

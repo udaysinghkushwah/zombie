@@ -1,0 +1,16 @@
+<zombie-modal-backdrop
+  data-testid="modal-backdrop"
+  (click)="onBackDropClick($event)"
+>
+  <div
+    class="relative w-full h-full p-4 md:h-auto"
+    [ngClass]="{ 'max-w-xl': size === 'xl', 'max-w-2xl': size === '2xl' }"
+    (click)="onContainerClick($event)"
+  >
+    <div
+      class="relative flex flex-col items-stretch justify-start p-5 space-y-5 bg-white rounded-lg rounded-t shadow"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+</zombie-modal-backdrop>
